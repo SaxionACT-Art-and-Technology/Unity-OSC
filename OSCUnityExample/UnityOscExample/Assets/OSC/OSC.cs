@@ -18,11 +18,6 @@ namespace UnityOSC {
 
 	public class OSC : MonoBehaviour {
 
-//		public void Awake() {
-//			Debug.Log ("OSC Awake: don't destroy");
-//			DontDestroyOnLoad (this);
-//		}
-
 		// A dictionary with, for each OSC "address", a list of message handlers, to be called
 		// when a message for some ODSC address arrives. 
 		Dictionary<string, List<OSCMessageHandler>> handlers = new Dictionary<string, List<OSCMessageHandler>>();
@@ -39,6 +34,7 @@ namespace UnityOSC {
 				if (rc == null) {
 					Debug.Log ("Create NEW OSC Instance");
 					rc = new GameObject ("OSC").AddComponent<OSC>();
+					DontDestroyOnLoad (rc);
 				} else {
 					Debug.Log ("Reuse existing OSC Instance");
 				}
