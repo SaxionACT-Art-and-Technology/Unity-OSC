@@ -82,6 +82,7 @@ public class OSCHandler : MonoBehaviour
 			{
 				_instance = new GameObject ("OSCHandler").AddComponent<OSCHandler>();
 				GameObjectUtility.SetParentAndAlign(GameObject.Find("OSCHandler"), GameObject.Find("OSC"));
+				DontDestroyOnLoad (_instance);
 	        }
 	       
 	        return _instance;
